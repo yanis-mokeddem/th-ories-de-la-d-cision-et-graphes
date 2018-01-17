@@ -275,6 +275,22 @@ void parcours(){
 }
 
 
+void pause()
+{
+  int continuer = 1;
+
+  while (continuer)
+    {
+      SDL_Event event;
+      SDL_WaitEvent(&event);
+      switch (event.type)
+	{
+	case SDL_QUIT:
+	  continuer = 0;
+	}
+    }
+}
+
 void clean(char chaine[]){
 
   int i=0;
@@ -318,6 +334,88 @@ int main(){
   }
   printf("\n");
     
+    
+    
+  char chaine[50]="";
+    
+  SDL_Rect position;
+  TTF_Font *police = NULL;
+  //SDL_Color couleurNoire = {0, 0, 0,42};
+  SDL_Color couleurBlanche = {255, 255, 255,42};
+  
+  SDL_Surface *ecran;
+	
+  SDL_Surface *tab_texte[NB_NOEUDS];
+  int indice_texte=0;
+    
+    
+  if (SDL_Init(SDL_INIT_VIDEO) >= 0){
+    TTF_Init();
+    police = TTF_OpenFont("po.TTF", 12);
+    ecran = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE);
+    
+    //initCouleurs();
+    
+    if (ecran != NULL){
+    
+      SDL_WM_SetCaption("Ma super fenêtre SDL 222 !", NULL);
+      SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
+      {
+      
+	char *recherche;
+	recherche=tab_noeuds[9].nom_ville;
+	
+	
+	strcpy(chaine,"Les antecedents de ");
+	strcat(chaine,tab_noeuds[9].nom_ville);
+	tab_texte[indice_texte] = TTF_RenderText_Blended(police, chaine,couleurBlanche);
+	clean(chaine);
+	
+	position.x = 0;
+	position.y = 3;
+	SDL_BlitSurface(tab_texte[indice_texte], NULL, ecran, &position);
+	indice_texte=indice_texte+1;
+	
+	for(j=i-1;j>=0;j--){
+      
+	  if(strcmp(recherche,tab_antecedents[j].nom_noeud)==0){
+	    //printf(", %s",tab_antecedents[j].nom_antecedent);
+	    
+	    recherche=tab_antecedents[j].nom_antecedent;
+	    strcpy(chaine,tab_antecedents[j].nom_antecedent);
+	    tab_texte[indice_texte] = TTF_RenderText_Blended(police, chaine,couleurBlanche);
+	clean(chaine);
+	
+	position.x = 0;
+	position.y +=28;
+	SDL_BlitSurface(tab_texte[indice_texte], NULL, ecran, &position);
+	indice_texte=indice_texte+1;
+	
+	  }
+	}
+    	
+    	strcpy(chaine,"Poids en km du plus court chemin : ");
+    	char num_to_string[10]="";
+    	sprintf(num_to_string,"%d",tab_noeuds[9].poids);
+    	
+    	strcat(chaine,num_to_string);
+	tab_texte[indice_texte] = TTF_RenderText_Blended(police, chaine,couleurBlanche);
+	clean(chaine);
+	
+	position.x = 0;
+	position.y += 50;
+	SDL_BlitSurface(tab_texte[indice_texte], NULL, ecran, &position);
+	indice_texte=indice_texte+1;
+    	
+	
+      }
+    
+    
+    }
+    SDL_Flip(ecran);
+      pause();
+    
+   } 
 	
 
     return 0;
