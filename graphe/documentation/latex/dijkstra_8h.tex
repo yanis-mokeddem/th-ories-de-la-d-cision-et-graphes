@@ -1,0 +1,216 @@
+\section{Référence du fichier dijkstra.\+h}
+\label{dijkstra_8h}\index{dijkstra.\+h@{dijkstra.\+h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 0
+\subsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf noeud}
+\item 
+struct {\bf arc}
+\item 
+struct {\bf antecedent}
+\item 
+struct {\bf voisin}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}~10
+\item 
+\#define {\bf N\+B\+\_\+\+A\+R\+CS}~17
+\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf noeud} {\bf noeud}
+\item 
+typedef struct {\bf arc} {\bf arc}
+\item 
+typedef struct {\bf antecedent} {\bf antecedent}
+\item 
+typedef struct {\bf voisin} {\bf voisin}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf initialise} ()
+\item 
+int {\bf minimum} ()
+\item 
+void {\bf trouve\+\_\+voisin} (char $\ast$nom\+\_\+ville, {\bf voisin} {\bf tab\+\_\+voisins}[$\,$])
+\item 
+int {\bf trouve\+\_\+poids\+\_\+arc} (char $\ast${\bf voisin}, char $\ast$nom\+\_\+ville)
+\item 
+void {\bf parcours} ()
+\item 
+void {\bf pause} ()
+\item 
+void {\bf clean} (char chaine[$\,$])
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf noeud} {\bf tab\+\_\+noeuds} [{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]
+\item 
+{\bf arc} {\bf tab\+\_\+arcs} [{\bf N\+B\+\_\+\+A\+R\+CS}]
+\item 
+{\bf antecedent} {\bf tab\+\_\+antecedents} [20]
+\item 
+{\bf voisin} {\bf tab\+\_\+voisins} [{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des macros}
+\index{dijkstra.\+h@{dijkstra.\+h}!N\+B\+\_\+\+A\+R\+CS@{N\+B\+\_\+\+A\+R\+CS}}
+\index{N\+B\+\_\+\+A\+R\+CS@{N\+B\+\_\+\+A\+R\+CS}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{N\+B\+\_\+\+A\+R\+CS}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+B\+\_\+\+A\+R\+CS~17}\label{dijkstra_8h_a19b678a5ffe40bc8fc4e374f4c18b605}
+
+
+Référencé par trouve\+\_\+poids\+\_\+arc(), et trouve\+\_\+voisin().
+
+\index{dijkstra.\+h@{dijkstra.\+h}!N\+B\+\_\+\+N\+O\+E\+U\+DS@{N\+B\+\_\+\+N\+O\+E\+U\+DS}}
+\index{N\+B\+\_\+\+N\+O\+E\+U\+DS@{N\+B\+\_\+\+N\+O\+E\+U\+DS}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{N\+B\+\_\+\+N\+O\+E\+U\+DS}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+B\+\_\+\+N\+O\+E\+U\+DS~10}\label{dijkstra_8h_af1fc50eb3549e02b274f975c008628e7}
+
+
+Référencé par initialise(), main(), minimum(), et parcours().
+
+
+
+\subsection{Documentation des définitions de type}
+\index{dijkstra.\+h@{dijkstra.\+h}!antecedent@{antecedent}}
+\index{antecedent@{antecedent}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{antecedent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf antecedent} {\bf antecedent}}\label{dijkstra_8h_a9089894c66af46d46bdc5d6d093b96d5}
+\index{dijkstra.\+h@{dijkstra.\+h}!arc@{arc}}
+\index{arc@{arc}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{arc}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf arc} {\bf arc}}\label{dijkstra_8h_ab1cf70ddf9a2feb7b697bb030824ea87}
+\index{dijkstra.\+h@{dijkstra.\+h}!noeud@{noeud}}
+\index{noeud@{noeud}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{noeud}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf noeud} {\bf noeud}}\label{dijkstra_8h_a23a591b87421332275c57bbc0bd88c83}
+\index{dijkstra.\+h@{dijkstra.\+h}!voisin@{voisin}}
+\index{voisin@{voisin}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{voisin}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf voisin} {\bf voisin}}\label{dijkstra_8h_a39c3ae1f221424a147ed253d943ce413}
+
+
+\subsection{Documentation des fonctions}
+\index{dijkstra.\+h@{dijkstra.\+h}!clean@{clean}}
+\index{clean@{clean}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{clean(char chaine[])}]{\setlength{\rightskip}{0pt plus 5cm}void clean (
+\begin{DoxyParamCaption}
+\item[{char}]{chaine[$\,$]}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_a9040c7c2374a430d0447e811d7df7014}
+
+
+Référencé par main().
+
+\index{dijkstra.\+h@{dijkstra.\+h}!initialise@{initialise}}
+\index{initialise@{initialise}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{initialise()}]{\setlength{\rightskip}{0pt plus 5cm}void initialise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_a18abf8b19283101238a77c9e6865b673}
+fonction d\textquotesingle{}initialisation 
+
+Références N\+B\+\_\+\+N\+O\+E\+U\+DS, arc\+::noeud1, arc\+::noeud2, noeud\+::nom\+\_\+ville, noeud\+::parcouru, noeud\+::poids, et arc\+::poids.
+
+
+
+Référencé par main().
+
+\index{dijkstra.\+h@{dijkstra.\+h}!minimum@{minimum}}
+\index{minimum@{minimum}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{minimum()}]{\setlength{\rightskip}{0pt plus 5cm}int minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_a17c124c64514dd5c2a625fd53ff868e7}
+fonction qui va chercher le minimum des poids de chaque noeud pour que l\textquotesingle{}on part du noeud le plus petit, elle retourne l\textquotesingle{}undice du plus petit 
+
+Références N\+B\+\_\+\+N\+O\+E\+U\+DS.
+
+
+
+Référencé par parcours().
+
+\index{dijkstra.\+h@{dijkstra.\+h}!parcours@{parcours}}
+\index{parcours@{parcours}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{parcours()}]{\setlength{\rightskip}{0pt plus 5cm}void parcours (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_a6b93bffd94bf73535b46e135dec54acf}
+fonction principale qui appelle toutes les autres fonctions 
+
+Références minimum(), N\+B\+\_\+\+N\+O\+E\+U\+DS, antecedent\+::nom\+\_\+antecedent, antecedent\+::nom\+\_\+noeud, noeud\+::nom\+\_\+ville, noeud\+::parcouru, noeud\+::poids, trouve\+\_\+poids\+\_\+arc(), et trouve\+\_\+voisin().
+
+
+
+Référencé par main().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 1
+
+
+\index{dijkstra.\+h@{dijkstra.\+h}!pause@{pause}}
+\index{pause@{pause}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{pause()}]{\setlength{\rightskip}{0pt plus 5cm}void pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_a7167f5c196fc5e167bfabde1a730e81d}
+fonction pause 
+
+Référencé par main().
+
+\index{dijkstra.\+h@{dijkstra.\+h}!trouve\+\_\+poids\+\_\+arc@{trouve\+\_\+poids\+\_\+arc}}
+\index{trouve\+\_\+poids\+\_\+arc@{trouve\+\_\+poids\+\_\+arc}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{trouve\+\_\+poids\+\_\+arc(char $\ast$voisin, char $\ast$nom\+\_\+ville)}]{\setlength{\rightskip}{0pt plus 5cm}int trouve\+\_\+poids\+\_\+arc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{voisin, }
+\item[{char $\ast$}]{nom\+\_\+ville}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_a810b019bea300e1e8df696a363669433}
+
+
+Références N\+B\+\_\+\+A\+R\+CS, et arc\+::poids.
+
+
+
+Référencé par parcours().
+
+\index{dijkstra.\+h@{dijkstra.\+h}!trouve\+\_\+voisin@{trouve\+\_\+voisin}}
+\index{trouve\+\_\+voisin@{trouve\+\_\+voisin}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{trouve\+\_\+voisin(char $\ast$nom\+\_\+ville, voisin tab\+\_\+voisins[])}]{\setlength{\rightskip}{0pt plus 5cm}void trouve\+\_\+voisin (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nom\+\_\+ville, }
+\item[{{\bf voisin}}]{tab\+\_\+voisins[$\,$]}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8h_aa94e5cb4ca0db46dcb4bed983009add5}
+pour une ville je vais trouver tous ses voisins 
+
+Références N\+B\+\_\+\+A\+R\+CS, arc\+::noeud1, arc\+::noeud2, et voisin\+::nom\+\_\+voisin.
+
+
+
+Référencé par parcours().
+
+
+
+\subsection{Documentation des variables}
+\index{dijkstra.\+h@{dijkstra.\+h}!tab\+\_\+antecedents@{tab\+\_\+antecedents}}
+\index{tab\+\_\+antecedents@{tab\+\_\+antecedents}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{tab\+\_\+antecedents}]{\setlength{\rightskip}{0pt plus 5cm}{\bf antecedent} tab\+\_\+antecedents[20]}\label{dijkstra_8h_a96825aed37e14b79967e9b5d8cd33f14}
+\index{dijkstra.\+h@{dijkstra.\+h}!tab\+\_\+arcs@{tab\+\_\+arcs}}
+\index{tab\+\_\+arcs@{tab\+\_\+arcs}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{tab\+\_\+arcs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf arc} tab\+\_\+arcs[{\bf N\+B\+\_\+\+A\+R\+CS}]}\label{dijkstra_8h_ac0addc5f94e666434ab7150e25fc2a4c}
+\index{dijkstra.\+h@{dijkstra.\+h}!tab\+\_\+noeuds@{tab\+\_\+noeuds}}
+\index{tab\+\_\+noeuds@{tab\+\_\+noeuds}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{tab\+\_\+noeuds}]{\setlength{\rightskip}{0pt plus 5cm}{\bf noeud} tab\+\_\+noeuds[{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]}\label{dijkstra_8h_aa6930a9c4773bd08e29182c701b5706f}
+\index{dijkstra.\+h@{dijkstra.\+h}!tab\+\_\+voisins@{tab\+\_\+voisins}}
+\index{tab\+\_\+voisins@{tab\+\_\+voisins}!dijkstra.\+h@{dijkstra.\+h}}
+\subsubsection[{tab\+\_\+voisins}]{\setlength{\rightskip}{0pt plus 5cm}{\bf voisin} tab\+\_\+voisins[{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]}\label{dijkstra_8h_a3db89541b1f8ffde2ca7b77ce0febfb2}

@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include <stdbool.h>
@@ -7,52 +8,7 @@
 #include <SDL/SDL_ttf.h>
 
 
-/*
-
-  gcc -W -Wall dijkstra_malloc.c -lSDL -lSDL2 -lm -lSDL_ttf
-
-*/
-
-
-int nb_noeuds=0;
-int nb_arcs= 0;
-
-
-//la struct correspond a une sphere/ville
-struct noeud{
-  char nom_ville[30];
-  int poids;
-  bool parcouru;
-};
-
-typedef struct noeud noeud;
-
-struct arc{
-  char noeud1[30];
-  char noeud2[30];
-  int poids;
-};
-
-typedef struct arc arc;
-
-struct antecedent{
-  char *nom_noeud;//c'est le nom d'une ville
-  char *nom_antecedent;//c'est le noeud par lequelle je suis passé avant d'arriver au noeud actuel
-};
-
-typedef struct antecedent antecedent;
-
-struct voisin{
-  char *nom_voisin;
-};
-
-typedef struct voisin voisin;
-
-
-
-
-char chaine[30]="";
-char ville_arriver[30]="";
+#include"dijkstra_malloc.h"
 
 
 void clean(char chaine[]){
@@ -69,6 +25,8 @@ void enleve_n(char chaine[]){
     chaine[i]='\0';
 }
 
+
+/** fonction d'initialisation des variables*/
 void initialise(noeud *tab_noeuds,
 		arc *tab_arcs){
   int i,j;
@@ -138,7 +96,7 @@ void initialise(noeud *tab_noeuds,
 }
 
 
-//fonction qui va chercher le minimum des poids de chaque noeud pour que l'on part du noeud le plus petit, elle retourne l'undice du plus petit
+/**fonction qui va chercher le minimum des poids de chaque noeud pour que l'on part du noeud le plus petit, elle retourne l'undice du plus petit*/
 int minimum(noeud *tab_noeuds){
 	
   int i=0;
@@ -146,12 +104,6 @@ int minimum(noeud *tab_noeuds){
   int compteur_de_moins_1=0;
   //je prend min_i a 0 car il va etre l'indice i a 0 et je vais le comparer avec les indices i+1,i+2...
   for(i=1;i<nb_noeuds;i++){
-    //printf("tab_noeuds[i].nom_ville %s tab_noeuds[i].poids %d\n\n",tab_noeuds[i].nom_ville,tab_noeuds[i].poids);
-    //if(tab_noeuds[i].parcouru==false)
-    //	min_i;
-    /*if(tab_noeuds[i].parcouru==true){
-      continue;
-      }*/
 
     if(tab_noeuds[i].poids==-1){
       compteur_de_moins_1++;
@@ -164,17 +116,15 @@ int minimum(noeud *tab_noeuds){
       min_i=min_i+1;
       continue;
     }
-    //printf("tab_noeuds[min_i].poids %d tab_noeuds[i].poids %d\n",tab_noeuds[min_i].poids,tab_noeuds[i].poids);
     if((tab_noeuds[min_i].poids>tab_noeuds[i].poids) && tab_noeuds[i].parcouru==false){	
       min_i=i;
-      //printf("min_i issssssssssssss:%d\n",min_i);
     }
   }
   return min_i;
 }
 
 
-//pour une ville je vais trouver tous ses voisins
+/**pour une ville je vais trouver tous ses voisins*/
 void trouve_voisin(char nom_ville[], voisin *tab_voisins,arc *tab_arcs){
   int i=0,j=0;
   //je parcours les arcs pour trouver le nom d'une ville dans le noeud1 ou noued2 et je rentre son voisin dans le tab_voisins
@@ -192,7 +142,7 @@ void trouve_voisin(char nom_ville[], voisin *tab_voisins,arc *tab_arcs){
 }
 
 
-int trouve_poids_arc(char* voisin,char nom_ville[],arc *tab_arcs){//on va donner en parametre 2 noms de ville qui un arc en commun et ca va retouner le poids de l'arc
+int trouve_poids_arc(char* voisin,char nom_ville[],arc *tab_arcs){/**on va donner en parametre 2 noms de ville qui un arc en commun et ca va retouner le poids de l'arc*/
 
   int i=0;
   for(i=0;i<nb_arcs;i++){
@@ -204,7 +154,7 @@ int trouve_poids_arc(char* voisin,char nom_ville[],arc *tab_arcs){//on va donner
   return -2;
 }
 
-
+/**fonction principale qui appelle toutes les autres fonctions*/
 void parcours(noeud *tab_noeuds,
 	      arc *tab_arcs,
 	      antecedent *tab_antecedents,
@@ -217,7 +167,6 @@ void parcours(noeud *tab_noeuds,
 
   
   while(strcmp(tab_noeuds[min_i].nom_ville,ville_arriver)!=0){//tant que on est pas a la ville d'arriver
-    //while(x<4){
     min_i=minimum(tab_noeuds);
     printf("tab_noeuds[min_i].nom_ville iciiiiiiiiiiii %s\n",tab_noeuds[min_i].nom_ville);
     printf("min_i is:%d\n",min_i);
@@ -232,8 +181,6 @@ void parcours(noeud *tab_noeuds,
 						
 	    printf("tab_noeuds[i].nom_ville is %s val_arc is:%d\n",tab_noeuds[i].nom_ville,val_arc);
 	    printf("tab_noeuds[i].parcouru %d tab_noeuds[i].poids %d\n",tab_noeuds[i].parcouru,tab_noeuds[i].poids);
-						
-	    //return;
 						
 	    if( ((tab_noeuds[i].parcouru==false) && ((tab_noeuds[min_i].poids + val_arc) < tab_noeuds[i].poids))|| tab_noeuds[i].poids==-1) {
 	      tab_noeuds[i].poids=tab_noeuds[min_i].poids + val_arc;  //j'affecte a la ville voisin le poids de l'arc qu'il a parcouru
@@ -262,19 +209,10 @@ void pause();
 
 void disque(int cx, int cy, int rayon, int coul,SDL_Surface *const ecran);
 
+ 
 
-SDL_Surface *ecran;
-
-enum {
-  C_NOIR, C_BLEU_FONCE, C_VERT_FONCE, C_CYAN_FONCE, C_ROUGE_FONCE,
-  C_MAGENTA_FONCE, C_OCRE, C_GRIS_CLAIR, C_GRIS, C_BLEU, C_VERT,
-  C_CYAN, C_ROUGE, C_MAGENTA, C_JAUNE, C_BLANC,
  
-  NB_COULEURS
-};
- 
-Uint32 couleurs[NB_COULEURS];
- 
+ /**permet de changer les couleurs des cercles et segments*/
 void initCouleurs()
 {
   couleurs[C_NOIR]          = SDL_MapRGB(ecran->format, 0x00, 0x00, 0x00);
@@ -345,7 +283,7 @@ void pause()
     }
 }
 
-
+/**fonction creer un cercle*/
 void disque(int cx, int cy, int rayon, int coul,SDL_Surface *const ecran)
 {
   int d, y, x;
@@ -458,13 +396,10 @@ void ligne(int x1, int y1, int x2, int y2, Uint32 coul)
 }
 
 
-
-
 void int_to_char(int nb){
   clean(chaine);
   sprintf(chaine, "%d", nb);
 }
-
 
 
 
@@ -727,4 +662,6 @@ pause();
   return EXIT_SUCCESS;
 	
 }
+
+
 

@@ -1,0 +1,170 @@
+\section{Référence du fichier dijkstra.\+c}
+\label{dijkstra_8c}\index{dijkstra.\+c@{dijkstra.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L.\+h$>$}\\*
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L\+\_\+ttf.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}dijkstra.\+h\char`\"{}}\\*
+Graphe des dépendances par inclusion de dijkstra.\+c\+:
+% FIG 0
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf initialise} ()
+\item 
+int {\bf minimum} ()
+\item 
+void {\bf trouve\+\_\+voisin} (char $\ast$nom\+\_\+ville, {\bf voisin} {\bf tab\+\_\+voisins}[$\,$])
+\item 
+int {\bf trouve\+\_\+poids\+\_\+arc} (char $\ast${\bf voisin}, char $\ast$nom\+\_\+ville)
+\item 
+void {\bf parcours} ()
+\item 
+void {\bf pause} ()
+\item 
+void {\bf clean} (char chaine[$\,$])
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf noeud} {\bf tab\+\_\+noeuds} [{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]
+\item 
+{\bf arc} {\bf tab\+\_\+arcs} [{\bf N\+B\+\_\+\+A\+R\+CS}]
+\item 
+{\bf antecedent} {\bf tab\+\_\+antecedents} [20]
+\item 
+{\bf voisin} {\bf tab\+\_\+voisins} [{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\index{dijkstra.\+c@{dijkstra.\+c}!clean@{clean}}
+\index{clean@{clean}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{clean(char chaine[])}]{\setlength{\rightskip}{0pt plus 5cm}void clean (
+\begin{DoxyParamCaption}
+\item[{char}]{chaine[$\,$]}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_a9040c7c2374a430d0447e811d7df7014}
+
+
+Référencé par main().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!initialise@{initialise}}
+\index{initialise@{initialise}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{initialise()}]{\setlength{\rightskip}{0pt plus 5cm}void initialise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_a18abf8b19283101238a77c9e6865b673}
+fonction d\textquotesingle{}initialisation 
+
+Références N\+B\+\_\+\+N\+O\+E\+U\+DS, arc\+::noeud1, arc\+::noeud2, noeud\+::nom\+\_\+ville, noeud\+::parcouru, noeud\+::poids, et arc\+::poids.
+
+
+
+Référencé par main().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!minimum@{minimum}}
+\index{minimum@{minimum}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{minimum()}]{\setlength{\rightskip}{0pt plus 5cm}int minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_a17c124c64514dd5c2a625fd53ff868e7}
+fonction qui va chercher le minimum des poids de chaque noeud pour que l\textquotesingle{}on part du noeud le plus petit, elle retourne l\textquotesingle{}undice du plus petit 
+
+Références N\+B\+\_\+\+N\+O\+E\+U\+DS.
+
+
+
+Référencé par parcours().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!parcours@{parcours}}
+\index{parcours@{parcours}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{parcours()}]{\setlength{\rightskip}{0pt plus 5cm}void parcours (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_a6b93bffd94bf73535b46e135dec54acf}
+fonction principale qui appelle toutes les autres fonctions 
+
+Références minimum(), N\+B\+\_\+\+N\+O\+E\+U\+DS, antecedent\+::nom\+\_\+antecedent, antecedent\+::nom\+\_\+noeud, noeud\+::nom\+\_\+ville, noeud\+::parcouru, noeud\+::poids, trouve\+\_\+poids\+\_\+arc(), et trouve\+\_\+voisin().
+
+
+
+Référencé par main().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 1
+
+
+\index{dijkstra.\+c@{dijkstra.\+c}!pause@{pause}}
+\index{pause@{pause}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{pause()}]{\setlength{\rightskip}{0pt plus 5cm}void pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_a7167f5c196fc5e167bfabde1a730e81d}
+fonction pause 
+
+Référencé par main().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!trouve\+\_\+poids\+\_\+arc@{trouve\+\_\+poids\+\_\+arc}}
+\index{trouve\+\_\+poids\+\_\+arc@{trouve\+\_\+poids\+\_\+arc}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{trouve\+\_\+poids\+\_\+arc(char $\ast$voisin, char $\ast$nom\+\_\+ville)}]{\setlength{\rightskip}{0pt plus 5cm}int trouve\+\_\+poids\+\_\+arc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{voisin, }
+\item[{char $\ast$}]{nom\+\_\+ville}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_a810b019bea300e1e8df696a363669433}
+
+
+Références N\+B\+\_\+\+A\+R\+CS, et arc\+::poids.
+
+
+
+Référencé par parcours().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!trouve\+\_\+voisin@{trouve\+\_\+voisin}}
+\index{trouve\+\_\+voisin@{trouve\+\_\+voisin}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{trouve\+\_\+voisin(char $\ast$nom\+\_\+ville, voisin tab\+\_\+voisins[])}]{\setlength{\rightskip}{0pt plus 5cm}void trouve\+\_\+voisin (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nom\+\_\+ville, }
+\item[{{\bf voisin}}]{tab\+\_\+voisins[$\,$]}
+\end{DoxyParamCaption}
+)}\label{dijkstra_8c_aa94e5cb4ca0db46dcb4bed983009add5}
+pour une ville je vais trouver tous ses voisins 
+
+Références N\+B\+\_\+\+A\+R\+CS, arc\+::noeud1, arc\+::noeud2, et voisin\+::nom\+\_\+voisin.
+
+
+
+Référencé par parcours().
+
+
+
+\subsection{Documentation des variables}
+\index{dijkstra.\+c@{dijkstra.\+c}!tab\+\_\+antecedents@{tab\+\_\+antecedents}}
+\index{tab\+\_\+antecedents@{tab\+\_\+antecedents}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{tab\+\_\+antecedents}]{\setlength{\rightskip}{0pt plus 5cm}{\bf antecedent} tab\+\_\+antecedents[20]}\label{dijkstra_8c_a96825aed37e14b79967e9b5d8cd33f14}
+
+
+Référencé par main().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!tab\+\_\+arcs@{tab\+\_\+arcs}}
+\index{tab\+\_\+arcs@{tab\+\_\+arcs}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{tab\+\_\+arcs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf arc} tab\+\_\+arcs[{\bf N\+B\+\_\+\+A\+R\+CS}]}\label{dijkstra_8c_ac0addc5f94e666434ab7150e25fc2a4c}
+\index{dijkstra.\+c@{dijkstra.\+c}!tab\+\_\+noeuds@{tab\+\_\+noeuds}}
+\index{tab\+\_\+noeuds@{tab\+\_\+noeuds}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{tab\+\_\+noeuds}]{\setlength{\rightskip}{0pt plus 5cm}{\bf noeud} tab\+\_\+noeuds[{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]}\label{dijkstra_8c_aa6930a9c4773bd08e29182c701b5706f}
+
+
+Référencé par main().
+
+\index{dijkstra.\+c@{dijkstra.\+c}!tab\+\_\+voisins@{tab\+\_\+voisins}}
+\index{tab\+\_\+voisins@{tab\+\_\+voisins}!dijkstra.\+c@{dijkstra.\+c}}
+\subsubsection[{tab\+\_\+voisins}]{\setlength{\rightskip}{0pt plus 5cm}{\bf voisin} tab\+\_\+voisins[{\bf N\+B\+\_\+\+N\+O\+E\+U\+DS}]}\label{dijkstra_8c_a3db89541b1f8ffde2ca7b77ce0febfb2}

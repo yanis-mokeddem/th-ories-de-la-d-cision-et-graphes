@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include <stdbool.h>
@@ -5,54 +6,15 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
 
-
-#define NB_NOEUDS 10
-#define NB_ARCS 17
-
-/*
-
-  gcc -W -Wall dijkstra.c -lSDL -lSDL2 -lm -lSDL_ttf
-
-*/
-
-
-//la struct correspond a une sphere/ville
-struct noeud{
-  char *nom_ville;
-  int poids;
-  bool parcouru;
-};
-
-typedef struct noeud noeud;
-
-struct arc{
-  char *noeud1;
-  char *noeud2;
-  int poids;
-};
-
-typedef struct arc arc;
-
-struct antecedent{
-  char *nom_noeud;//c'est le nom d'une ville
-  char *nom_antecedent;//c'est le noeud par lequelle je suis passé avant d'arriver au noeud actuel
-
-};
-
-typedef struct antecedent antecedent;
-
-struct voisin{
-  char *nom_voisin;
-};
-
-typedef struct voisin voisin;
-
+#include"dijkstra.h"
 
 noeud tab_noeuds[NB_NOEUDS];
 arc tab_arcs[NB_ARCS];
 antecedent tab_antecedents[20];
 voisin tab_voisins[NB_NOEUDS];
 
+
+/** fonction d'initialisation*/
 void initialise(){
   int i,j;
 
@@ -162,19 +124,13 @@ void initialise(){
 }
 
 
-//fonction qui va chercher le minimum des poids de chaque noeud pour que l'on part du noeud le plus petit, elle retourne l'undice du plus petit
+/**fonction qui va chercher le minimum des poids de chaque noeud pour que l'on part du noeud le plus petit, elle retourne l'undice du plus petit*/
 int minimum(){
   int i=0;
   int min_i=0;
   int compteur_de_moins_1=0;
   //je prend min_i a 0 car il va etre l'indice i a 0 et je vais le comparer avec les indices i+1,i+2...
   for(i=1;i<NB_NOEUDS;i++){
-    //printf("tab_noeuds[i].nom_ville %s tab_noeuds[i].poids %d\n\n",tab_noeuds[i].nom_ville,tab_noeuds[i].poids);
-    //if(tab_noeuds[i].parcouru==false)
-    //	min_i;
-    /*if(tab_noeuds[i].parcouru==true){
-      continue;
-      }*/
 
     if(tab_noeuds[i].poids==-1){
       compteur_de_moins_1++;
@@ -187,17 +143,15 @@ int minimum(){
       min_i=min_i+1;
       continue;
     }
-    //printf("tab_noeuds[min_i].poids %d tab_noeuds[i].poids %d\n",tab_noeuds[min_i].poids,tab_noeuds[i].poids);
     if((tab_noeuds[min_i].poids>tab_noeuds[i].poids) && tab_noeuds[i].parcouru==false){	
       min_i=i;
-      printf("min_i issssssssssssss:%d\n",min_i);
     }
   }
   return min_i;
 }
 
 
-//pour une ville je vais trouver tous ses voisins
+/**pour une ville je vais trouver tous ses voisins*/
 void trouve_voisin(char *nom_ville, voisin tab_voisins[]){
   int i=0,j=0;
   //je parcours les arcs pour trouver le nom d'une ville dans le noeud1 ou noued2 et je rentre son voisin dans le tab_voisins
@@ -215,7 +169,7 @@ void trouve_voisin(char *nom_ville, voisin tab_voisins[]){
 }
 
 
-int trouve_poids_arc(char* voisin,char* nom_ville){//on va donner en parametre 2 noms de ville qui un arc en commun et ca va retouner le poids de l'arc
+int trouve_poids_arc(char* voisin,char* nom_ville){/**on va donner en parametre 2 noms de ville qui un arc en commun et ca va retouner le poids de l'arc*/
 
   int i=0;
   for(i=0;i<NB_ARCS;i++){
@@ -227,7 +181,7 @@ int trouve_poids_arc(char* voisin,char* nom_ville){//on va donner en parametre 2
   return -2;
 }
 
-
+/**fonction principale qui appelle toutes les autres fonctions*/
 void parcours(){
 
   int min_i=0;
@@ -239,7 +193,6 @@ void parcours(){
   //int x=0;
   
   while(strcmp(tab_noeuds[min_i].nom_ville,ville_arriver)!=0){//tant que on est pas a la ville d'arriver
-    //while(x<4){
     min_i=minimum();
     printf("tab_noeuds[min_i].nom_ville iciiiiiiiiiiii %s\n",tab_noeuds[min_i].nom_ville);
     printf("min_i is:%d\n",min_i);
@@ -274,7 +227,7 @@ void parcours(){
   }
 }
 
-
+/**fonction pause*/
 void pause()
 {
   int continuer = 1;
@@ -299,124 +252,3 @@ void clean(char chaine[]){
 }
 
 
-
-int main(){
-  int i=0,j=0;
-
-  initialise();
-  for(i=0;i<NB_NOEUDS;i++){
-    printf("tab_noeuds[i].nom_ville: %s\n",tab_noeuds[i].nom_ville);
-    printf("tab_noeuds[i].poids : %d\n", tab_noeuds[i].poids);
-    printf("tab_noeuds[i].parcouru: %d\n\n",tab_noeuds[i].parcouru);
-  }
-  parcours();
-  /*for(i=0;tab_voisins[i].nom_voisin!=NULL;i++){
-    printf("tab_voisins[i].nom_voisin: %s\n",tab_voisins[i].nom_voisin);
-    }*/
-
-  for(i=0;tab_antecedents[i].nom_noeud!=NULL;i++){
-    printf("les antecedents sont:%s et nom:%s %d\n",tab_antecedents[i].nom_antecedent,tab_antecedents[i].nom_noeud,i);
-  }
-  printf("poids d'arriver au total en km quand on est passer par le chemin le plus court: %d\n",tab_noeuds[9].poids);
-	
-  char *recherche;
-  recherche=tab_noeuds[9].nom_ville;
-  printf("le chemin le plus court est donc : %s  ",tab_noeuds[9].nom_ville);
-  
-  
-  for(j=i-1;j>=0;j--){
-    //printf("les antecedents sont:%s et nom:%s %d\n",tab_antecedents[i].nom_antecedent,tab_antecedents[i].nom_noeud,i);
-    
-    if(strcmp(recherche,tab_antecedents[j].nom_noeud)==0){
-      printf(", %s",tab_antecedents[j].nom_antecedent);
-      recherche=tab_antecedents[j].nom_antecedent;
-    }
-  }
-  printf("\n");
-    
-    
-    
-  char chaine[50]="";
-    
-  SDL_Rect position;
-  TTF_Font *police = NULL;
-  //SDL_Color couleurNoire = {0, 0, 0,42};
-  SDL_Color couleurBlanche = {255, 255, 255,42};
-  
-  SDL_Surface *ecran;
-	
-  SDL_Surface *tab_texte[NB_NOEUDS];
-  int indice_texte=0;
-    
-    
-  if (SDL_Init(SDL_INIT_VIDEO) >= 0){
-    TTF_Init();
-    police = TTF_OpenFont("po.TTF", 12);
-    ecran = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE);
-    
-    //initCouleurs();
-    
-    if (ecran != NULL){
-    
-      SDL_WM_SetCaption("Ma super fenêtre SDL 222 !", NULL);
-      SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
-      {
-      
-	char *recherche;
-	recherche=tab_noeuds[9].nom_ville;
-	
-	
-	strcpy(chaine,"Les antecedents de ");
-	strcat(chaine,tab_noeuds[9].nom_ville);
-	tab_texte[indice_texte] = TTF_RenderText_Blended(police, chaine,couleurBlanche);
-	clean(chaine);
-	
-	position.x = 0;
-	position.y = 3;
-	SDL_BlitSurface(tab_texte[indice_texte], NULL, ecran, &position);
-	indice_texte=indice_texte+1;
-	
-	for(j=i-1;j>=0;j--){
-      
-	  if(strcmp(recherche,tab_antecedents[j].nom_noeud)==0){
-	    //printf(", %s",tab_antecedents[j].nom_antecedent);
-	    
-	    recherche=tab_antecedents[j].nom_antecedent;
-	    strcpy(chaine,tab_antecedents[j].nom_antecedent);
-	    tab_texte[indice_texte] = TTF_RenderText_Blended(police, chaine,couleurBlanche);
-	clean(chaine);
-	
-	position.x = 0;
-	position.y +=28;
-	SDL_BlitSurface(tab_texte[indice_texte], NULL, ecran, &position);
-	indice_texte=indice_texte+1;
-	
-	  }
-	}
-    	
-    	strcpy(chaine,"Poids en km du plus court chemin : ");
-    	char num_to_string[10]="";
-    	sprintf(num_to_string,"%d",tab_noeuds[9].poids);
-    	
-    	strcat(chaine,num_to_string);
-	tab_texte[indice_texte] = TTF_RenderText_Blended(police, chaine,couleurBlanche);
-	clean(chaine);
-	
-	position.x = 0;
-	position.y += 50;
-	SDL_BlitSurface(tab_texte[indice_texte], NULL, ecran, &position);
-	indice_texte=indice_texte+1;
-    	
-	
-      }
-    
-    
-    }
-    SDL_Flip(ecran);
-      pause();
-    
-   } 
-	
-
-    return 0;
-  }

@@ -1,0 +1,503 @@
+\section{Référence du fichier dijkstra\+\_\+malloc.\+h}
+\label{dijkstra__malloc_8h}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 0
+\subsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf noeud}
+\item 
+struct {\bf arc}
+\item 
+struct {\bf antecedent}
+\item 
+struct {\bf voisin}
+\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf noeud} {\bf noeud}
+\item 
+typedef struct {\bf arc} {\bf arc}
+\item 
+typedef struct {\bf antecedent} {\bf antecedent}
+\item 
+typedef struct {\bf voisin} {\bf voisin}
+\end{DoxyCompactItemize}
+\subsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+{\bf C\+\_\+\+N\+O\+IR}, 
+{\bf C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE}, 
+{\bf C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE}, 
+{\bf C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE}, 
+\\*
+{\bf C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE}, 
+{\bf C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE}, 
+{\bf C\+\_\+\+O\+C\+RE}, 
+{\bf C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR}, 
+\\*
+{\bf C\+\_\+\+G\+R\+IS}, 
+{\bf C\+\_\+\+B\+L\+EU}, 
+{\bf C\+\_\+\+V\+E\+RT}, 
+{\bf C\+\_\+\+C\+Y\+AN}, 
+\\*
+{\bf C\+\_\+\+R\+O\+U\+GE}, 
+{\bf C\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+{\bf C\+\_\+\+J\+A\+U\+NE}, 
+{\bf C\+\_\+\+B\+L\+A\+NC}, 
+\\*
+{\bf N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf clean} (char {\bf chaine}[$\,$])
+\item 
+void {\bf enleve\+\_\+n} (char {\bf chaine}[$\,$])
+\item 
+void {\bf initialise} ({\bf noeud} $\ast$tab\+\_\+noeuds, {\bf arc} $\ast$tab\+\_\+arcs)
+\item 
+int {\bf minimum} ({\bf noeud} $\ast$tab\+\_\+noeuds)
+\item 
+void {\bf trouve\+\_\+voisin} (char nom\+\_\+ville[$\,$], {\bf voisin} $\ast$tab\+\_\+voisins, {\bf arc} $\ast$tab\+\_\+arcs)
+\item 
+int {\bf trouve\+\_\+poids\+\_\+arc} (char $\ast${\bf voisin}, char nom\+\_\+ville[$\,$], {\bf arc} $\ast$tab\+\_\+arcs)
+\item 
+void {\bf parcours} ({\bf noeud} $\ast$tab\+\_\+noeuds, {\bf arc} $\ast$tab\+\_\+arcs, {\bf antecedent} $\ast$tab\+\_\+antecedents, {\bf voisin} $\ast$tab\+\_\+voisins)
+\item 
+void {\bf pause} ()
+\item 
+void {\bf disque} (int cx, int cy, int rayon, int coul, S\+D\+L\+\_\+\+Surface $\ast$const {\bf ecran})
+\item 
+void {\bf ligne\+Horizontale} (int x, int y, int w, Uint32 coul, S\+D\+L\+\_\+\+Surface $\ast$const {\bf ecran})
+\item 
+void {\bf ligne\+Verticale} (int x, int y, int h, Uint32 coul, S\+D\+L\+\_\+\+Surface $\ast$const {\bf ecran})
+\item 
+void {\bf echanger\+Entiers} (int $\ast$x, int $\ast$y)
+\item 
+void {\bf set\+Pixel} (int x, int y, Uint32 coul)
+\item 
+void {\bf set\+Pixel\+Verif} (int x, int y, Uint32 coul)
+\item 
+void {\bf ligne} (int x1, int y1, int x2, int y2, Uint32 coul)
+\item 
+void {\bf int\+\_\+to\+\_\+char} (int nb)
+\item 
+void {\bf init\+Couleurs} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Surface $\ast$ {\bf ecran}
+\item 
+Uint32 {\bf couleurs} [{\bf N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS}]
+\item 
+int {\bf nb\+\_\+noeuds} =0
+\item 
+int {\bf nb\+\_\+arcs} = 0
+\item 
+char {\bf chaine} [30] =\char`\"{}\char`\"{}
+\item 
+char {\bf ville\+\_\+arriver} [30] =\char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des définitions de type}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!antecedent@{antecedent}}
+\index{antecedent@{antecedent}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{antecedent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf antecedent} {\bf antecedent}}\label{dijkstra__malloc_8h_a9089894c66af46d46bdc5d6d093b96d5}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!arc@{arc}}
+\index{arc@{arc}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{arc}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf arc} {\bf arc}}\label{dijkstra__malloc_8h_ab1cf70ddf9a2feb7b697bb030824ea87}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!noeud@{noeud}}
+\index{noeud@{noeud}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{noeud}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf noeud} {\bf noeud}}\label{dijkstra__malloc_8h_a23a591b87421332275c57bbc0bd88c83}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!voisin@{voisin}}
+\index{voisin@{voisin}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{voisin}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf voisin} {\bf voisin}}\label{dijkstra__malloc_8h_a39c3ae1f221424a147ed253d943ce413}
+
+
+\subsection{Documentation du type de l\textquotesingle{}énumération}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55b}
+\begin{Desc}
+\item[Valeurs énumérées]\par
+\begin{description}
+\index{C\+\_\+\+N\+O\+IR@{C\+\_\+\+N\+O\+IR}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+N\+O\+IR@{C\+\_\+\+N\+O\+IR}}\item[{\em 
+C\+\_\+\+N\+O\+IR\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba0fb995e7a772cd6db3d93283d7d40b99}
+}]\index{C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE}}\item[{\em 
+C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba4f9b0b0eb423557f495c86c89224ba37}
+}]\index{C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE}}\item[{\em 
+C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55baf511893a34007cddd3a9ef5a510814ee}
+}]\index{C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE}}\item[{\em 
+C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba880bcb00a10d1935fc8a717f8e800a46}
+}]\index{C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE}}\item[{\em 
+C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba2f5734a146b35acd10ae31a257a68572}
+}]\index{C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE@{C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE}}\item[{\em 
+C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba09b2ff34959511454332cf1bf6468f25}
+}]\index{C\+\_\+\+O\+C\+RE@{C\+\_\+\+O\+C\+RE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+O\+C\+RE@{C\+\_\+\+O\+C\+RE}}\item[{\em 
+C\+\_\+\+O\+C\+RE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba573a14fca8f9d27a2703dc0ea23b0ef9}
+}]\index{C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR@{C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR@{C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR}}\item[{\em 
+C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba9c106527732eeb82539b48b4e6611dbb}
+}]\index{C\+\_\+\+G\+R\+IS@{C\+\_\+\+G\+R\+IS}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+G\+R\+IS@{C\+\_\+\+G\+R\+IS}}\item[{\em 
+C\+\_\+\+G\+R\+IS\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba1699db4002043e7fdfad234d14355aa5}
+}]\index{C\+\_\+\+B\+L\+EU@{C\+\_\+\+B\+L\+EU}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+B\+L\+EU@{C\+\_\+\+B\+L\+EU}}\item[{\em 
+C\+\_\+\+B\+L\+EU\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba11caa22e7a7ed278a354b7a70ca69b0d}
+}]\index{C\+\_\+\+V\+E\+RT@{C\+\_\+\+V\+E\+RT}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+V\+E\+RT@{C\+\_\+\+V\+E\+RT}}\item[{\em 
+C\+\_\+\+V\+E\+RT\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba4caf53f7bab3db9e5c12ac8fc19043fc}
+}]\index{C\+\_\+\+C\+Y\+AN@{C\+\_\+\+C\+Y\+AN}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+C\+Y\+AN@{C\+\_\+\+C\+Y\+AN}}\item[{\em 
+C\+\_\+\+C\+Y\+AN\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55bac1114f9c564ec65461d5c72c16cbc397}
+}]\index{C\+\_\+\+R\+O\+U\+GE@{C\+\_\+\+R\+O\+U\+GE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+R\+O\+U\+GE@{C\+\_\+\+R\+O\+U\+GE}}\item[{\em 
+C\+\_\+\+R\+O\+U\+GE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba57d5a572938698fc0f6989a4eedc96f6}
+}]\index{C\+\_\+\+M\+A\+G\+E\+N\+TA@{C\+\_\+\+M\+A\+G\+E\+N\+TA}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+M\+A\+G\+E\+N\+TA@{C\+\_\+\+M\+A\+G\+E\+N\+TA}}\item[{\em 
+C\+\_\+\+M\+A\+G\+E\+N\+TA\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba4430e6111fd81045f54222e1f8217142}
+}]\index{C\+\_\+\+J\+A\+U\+NE@{C\+\_\+\+J\+A\+U\+NE}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+J\+A\+U\+NE@{C\+\_\+\+J\+A\+U\+NE}}\item[{\em 
+C\+\_\+\+J\+A\+U\+NE\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba71f6bb243de15ae64438085ee4a4381b}
+}]\index{C\+\_\+\+B\+L\+A\+NC@{C\+\_\+\+B\+L\+A\+NC}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!C\+\_\+\+B\+L\+A\+NC@{C\+\_\+\+B\+L\+A\+NC}}\item[{\em 
+C\+\_\+\+B\+L\+A\+NC\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba42236f1a52ed3a42c79a91c943d621c6}
+}]\index{N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS@{N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS@{N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS}}\item[{\em 
+N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS\label{dijkstra__malloc_8h_a06fc87d81c62e9abb8790b6e5713c55ba6a412939bc2483946a9a86079093fa2a}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Documentation des fonctions}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!clean@{clean}}
+\index{clean@{clean}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{clean(char chaine[])}]{\setlength{\rightskip}{0pt plus 5cm}void clean (
+\begin{DoxyParamCaption}
+\item[{char}]{chaine[$\,$]}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a9040c7c2374a430d0447e811d7df7014}
+
+
+Référencé par initialise(), int\+\_\+to\+\_\+char(), et main().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!disque@{disque}}
+\index{disque@{disque}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{disque(int cx, int cy, int rayon, int coul, S\+D\+L\+\_\+\+Surface $\ast$const ecran)}]{\setlength{\rightskip}{0pt plus 5cm}void disque (
+\begin{DoxyParamCaption}
+\item[{int}]{cx, }
+\item[{int}]{cy, }
+\item[{int}]{rayon, }
+\item[{int}]{coul, }
+\item[{S\+D\+L\+\_\+\+Surface $\ast$const}]{ecran}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a9a9d369ceb59bdbbc21a7a7d4e80ac52}
+fonction creer un cercle 
+
+Références ligne\+Horizontale().
+
+
+
+Référencé par main(), et parcours().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 1
+
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!echanger\+Entiers@{echanger\+Entiers}}
+\index{echanger\+Entiers@{echanger\+Entiers}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{echanger\+Entiers(int $\ast$x, int $\ast$y)}]{\setlength{\rightskip}{0pt plus 5cm}void echanger\+Entiers (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_afa26708d2c8eb3e7a5e6f904a6855e7f}
+
+
+Référencé par ligne().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!enleve\+\_\+n@{enleve\+\_\+n}}
+\index{enleve\+\_\+n@{enleve\+\_\+n}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{enleve\+\_\+n(char chaine[])}]{\setlength{\rightskip}{0pt plus 5cm}void enleve\+\_\+n (
+\begin{DoxyParamCaption}
+\item[{char}]{chaine[$\,$]}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_ac02c211fe4e07a031cc1040be9e2f643}
+
+
+Référencé par initialise().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!init\+Couleurs@{init\+Couleurs}}
+\index{init\+Couleurs@{init\+Couleurs}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{init\+Couleurs()}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Couleurs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a7c8fd494e781fe53609b3843ed2aca43}
+permet de changer les couleurs des cercles et segments 
+
+Références C\+\_\+\+B\+L\+A\+NC, C\+\_\+\+B\+L\+EU, C\+\_\+\+B\+L\+E\+U\+\_\+\+F\+O\+N\+CE, C\+\_\+\+C\+Y\+AN, C\+\_\+\+C\+Y\+A\+N\+\_\+\+F\+O\+N\+CE, C\+\_\+\+G\+R\+IS, C\+\_\+\+G\+R\+I\+S\+\_\+\+C\+L\+A\+IR, C\+\_\+\+J\+A\+U\+NE, C\+\_\+\+M\+A\+G\+E\+N\+TA, C\+\_\+\+M\+A\+G\+E\+N\+T\+A\+\_\+\+F\+O\+N\+CE, C\+\_\+\+N\+O\+IR, C\+\_\+\+O\+C\+RE, C\+\_\+\+R\+O\+U\+GE, C\+\_\+\+R\+O\+U\+G\+E\+\_\+\+F\+O\+N\+CE, C\+\_\+\+V\+E\+RT, C\+\_\+\+V\+E\+R\+T\+\_\+\+F\+O\+N\+CE, couleurs, et ecran.
+
+
+
+Référencé par main().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!initialise@{initialise}}
+\index{initialise@{initialise}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{initialise(noeud $\ast$tab\+\_\+noeuds, arc $\ast$tab\+\_\+arcs)}]{\setlength{\rightskip}{0pt plus 5cm}void initialise (
+\begin{DoxyParamCaption}
+\item[{{\bf noeud} $\ast$}]{tab\+\_\+noeuds, }
+\item[{{\bf arc} $\ast$}]{tab\+\_\+arcs}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a09509d46f80b4957658574bb781c9b82}
+fonction d\textquotesingle{}initialisation des variables 
+
+Références chaine, clean(), enleve\+\_\+n(), nb\+\_\+arcs, nb\+\_\+noeuds, noeud\+::parcouru, noeud\+::poids, arc\+::poids, et ville\+\_\+arriver.
+
+
+
+Référencé par main().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 2
+
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!int\+\_\+to\+\_\+char@{int\+\_\+to\+\_\+char}}
+\index{int\+\_\+to\+\_\+char@{int\+\_\+to\+\_\+char}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{int\+\_\+to\+\_\+char(int nb)}]{\setlength{\rightskip}{0pt plus 5cm}void int\+\_\+to\+\_\+char (
+\begin{DoxyParamCaption}
+\item[{int}]{nb}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a858c73d4b9686b4496452e18c504c0c4}
+
+
+Références chaine, et clean().
+
+
+
+Référencé par main().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 3
+
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!ligne@{ligne}}
+\index{ligne@{ligne}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{ligne(int x1, int y1, int x2, int y2, Uint32 coul)}]{\setlength{\rightskip}{0pt plus 5cm}void ligne (
+\begin{DoxyParamCaption}
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2, }
+\item[{Uint32}]{coul}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a66f4e4eefb46bac943501dcebeb9b82a}
+
+
+Références echanger\+Entiers(), et set\+Pixel\+Verif().
+
+
+
+Référencé par main().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 4
+
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!ligne\+Horizontale@{ligne\+Horizontale}}
+\index{ligne\+Horizontale@{ligne\+Horizontale}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{ligne\+Horizontale(int x, int y, int w, Uint32 coul, S\+D\+L\+\_\+\+Surface $\ast$const ecran)}]{\setlength{\rightskip}{0pt plus 5cm}void ligne\+Horizontale (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{w, }
+\item[{Uint32}]{coul, }
+\item[{S\+D\+L\+\_\+\+Surface $\ast$const}]{ecran}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_ad4f2f130abc573c87f5a660ca949b6dd}
+
+
+Référencé par disque().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!ligne\+Verticale@{ligne\+Verticale}}
+\index{ligne\+Verticale@{ligne\+Verticale}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{ligne\+Verticale(int x, int y, int h, Uint32 coul, S\+D\+L\+\_\+\+Surface $\ast$const ecran)}]{\setlength{\rightskip}{0pt plus 5cm}void ligne\+Verticale (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{h, }
+\item[{Uint32}]{coul, }
+\item[{S\+D\+L\+\_\+\+Surface $\ast$const}]{ecran}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_aeaf6d72e43f65de2cb91a3e0eb576d0d}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!minimum@{minimum}}
+\index{minimum@{minimum}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{minimum(noeud $\ast$tab\+\_\+noeuds)}]{\setlength{\rightskip}{0pt plus 5cm}int minimum (
+\begin{DoxyParamCaption}
+\item[{{\bf noeud} $\ast$}]{tab\+\_\+noeuds}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_ae3b87a086b575787e74378732b4d4a64}
+fonction qui va chercher le minimum des poids de chaque noeud pour que l\textquotesingle{}on part du noeud le plus petit, elle retourne l\textquotesingle{}undice du plus petit 
+
+Références nb\+\_\+noeuds.
+
+
+
+Référencé par parcours().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!parcours@{parcours}}
+\index{parcours@{parcours}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{parcours(noeud $\ast$tab\+\_\+noeuds, arc $\ast$tab\+\_\+arcs, antecedent $\ast$tab\+\_\+antecedents, voisin $\ast$tab\+\_\+voisins)}]{\setlength{\rightskip}{0pt plus 5cm}void parcours (
+\begin{DoxyParamCaption}
+\item[{{\bf noeud} $\ast$}]{tab\+\_\+noeuds, }
+\item[{{\bf arc} $\ast$}]{tab\+\_\+arcs, }
+\item[{{\bf antecedent} $\ast$}]{tab\+\_\+antecedents, }
+\item[{{\bf voisin} $\ast$}]{tab\+\_\+voisins}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_af3b22d1cb008ffeeffaff57f298814a8}
+fonction principale qui appelle toutes les autres fonctions 
+
+Références disque(), ecran, minimum(), nb\+\_\+noeuds, antecedent\+::nom\+\_\+antecedent, antecedent\+::nom\+\_\+noeud, noeud\+::nom\+\_\+ville, noeud\+::parcouru, pause(), noeud\+::poids, trouve\+\_\+poids\+\_\+arc(), trouve\+\_\+voisin(), et ville\+\_\+arriver.
+
+
+
+Référencé par main().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 5
+
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!pause@{pause}}
+\index{pause@{pause}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{pause()}]{\setlength{\rightskip}{0pt plus 5cm}void pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a7167f5c196fc5e167bfabde1a730e81d}
+
+
+Référencé par main(), et parcours().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{set\+Pixel(int x, int y, Uint32 coul)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Pixel (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{Uint32}]{coul}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_ace645c902acda2805cec39d59617c675}
+
+
+Références ecran.
+
+
+
+Référencé par set\+Pixel\+Verif().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!set\+Pixel\+Verif@{set\+Pixel\+Verif}}
+\index{set\+Pixel\+Verif@{set\+Pixel\+Verif}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{set\+Pixel\+Verif(int x, int y, Uint32 coul)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Pixel\+Verif (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{Uint32}]{coul}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_ad66c7ce17ba546749b02f537c43a5034}
+
+
+Références set\+Pixel().
+
+
+
+Référencé par ligne().
+
+
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 6
+
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!trouve\+\_\+poids\+\_\+arc@{trouve\+\_\+poids\+\_\+arc}}
+\index{trouve\+\_\+poids\+\_\+arc@{trouve\+\_\+poids\+\_\+arc}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{trouve\+\_\+poids\+\_\+arc(char $\ast$voisin, char nom\+\_\+ville[], arc $\ast$tab\+\_\+arcs)}]{\setlength{\rightskip}{0pt plus 5cm}int trouve\+\_\+poids\+\_\+arc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{voisin, }
+\item[{char}]{nom\+\_\+ville[$\,$], }
+\item[{{\bf arc} $\ast$}]{tab\+\_\+arcs}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_afee4037276ab633f259be96cdbec9c0e}
+on va donner en parametre 2 noms de ville qui un arc en commun et ca va retouner le poids de l\textquotesingle{}arc 
+
+Références nb\+\_\+arcs, et arc\+::poids.
+
+
+
+Référencé par parcours().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!trouve\+\_\+voisin@{trouve\+\_\+voisin}}
+\index{trouve\+\_\+voisin@{trouve\+\_\+voisin}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{trouve\+\_\+voisin(char nom\+\_\+ville[], voisin $\ast$tab\+\_\+voisins, arc $\ast$tab\+\_\+arcs)}]{\setlength{\rightskip}{0pt plus 5cm}void trouve\+\_\+voisin (
+\begin{DoxyParamCaption}
+\item[{char}]{nom\+\_\+ville[$\,$], }
+\item[{{\bf voisin} $\ast$}]{tab\+\_\+voisins, }
+\item[{{\bf arc} $\ast$}]{tab\+\_\+arcs}
+\end{DoxyParamCaption}
+)}\label{dijkstra__malloc_8h_a2ff7c86f3993966a1d8aceec3dfd047f}
+pour une ville je vais trouver tous ses voisins 
+
+Références nb\+\_\+arcs, arc\+::noeud1, arc\+::noeud2, et voisin\+::nom\+\_\+voisin.
+
+
+
+Référencé par parcours().
+
+
+
+\subsection{Documentation des variables}
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!chaine@{chaine}}
+\index{chaine@{chaine}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{chaine}]{\setlength{\rightskip}{0pt plus 5cm}char chaine[30] =\char`\"{}\char`\"{}}\label{dijkstra__malloc_8h_a340238bb970574aab1fe881a3deaa6d0}
+
+
+Référencé par initialise(), int\+\_\+to\+\_\+char(), et main().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!couleurs@{couleurs}}
+\index{couleurs@{couleurs}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{couleurs}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 couleurs[{\bf N\+B\+\_\+\+C\+O\+U\+L\+E\+U\+RS}]}\label{dijkstra__malloc_8h_a025b11b0f1c015fd5b2c75ad56a7f8a7}
+
+
+Référencé par init\+Couleurs(), et main().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!ecran@{ecran}}
+\index{ecran@{ecran}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{ecran}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Surface$\ast$ ecran}\label{dijkstra__malloc_8h_ad7336f08728614cd400604d2ba6ca1ef}
+
+
+Référencé par init\+Couleurs(), main(), parcours(), et set\+Pixel().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!nb\+\_\+arcs@{nb\+\_\+arcs}}
+\index{nb\+\_\+arcs@{nb\+\_\+arcs}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{nb\+\_\+arcs}]{\setlength{\rightskip}{0pt plus 5cm}int nb\+\_\+arcs = 0}\label{dijkstra__malloc_8h_a11167be2abf61897c7c126efc14ebe67}
+
+
+Référencé par initialise(), main(), trouve\+\_\+poids\+\_\+arc(), et trouve\+\_\+voisin().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!nb\+\_\+noeuds@{nb\+\_\+noeuds}}
+\index{nb\+\_\+noeuds@{nb\+\_\+noeuds}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{nb\+\_\+noeuds}]{\setlength{\rightskip}{0pt plus 5cm}int nb\+\_\+noeuds =0}\label{dijkstra__malloc_8h_a573b137c526de2917404ff7ef7055adb}
+
+
+Référencé par initialise(), main(), minimum(), et parcours().
+
+\index{dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}!ville\+\_\+arriver@{ville\+\_\+arriver}}
+\index{ville\+\_\+arriver@{ville\+\_\+arriver}!dijkstra\+\_\+malloc.\+h@{dijkstra\+\_\+malloc.\+h}}
+\subsubsection[{ville\+\_\+arriver}]{\setlength{\rightskip}{0pt plus 5cm}char ville\+\_\+arriver[30] =\char`\"{}\char`\"{}}\label{dijkstra__malloc_8h_a334549312e621ef35e24e7dfe57a23d4}
+
+
+Référencé par initialise(), et parcours().
+
